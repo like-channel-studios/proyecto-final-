@@ -1,48 +1,71 @@
 const animaciones = {
-    "Llamadas de Atención": {
+    "Atención & Énfasis": {
         'latido': { 
-            nombre: 'Latido (Pulse)', 
-            css: `@keyframes latido { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }` 
+            nombre: 'Pulse (Latido)', 
+            css: `@keyframes latido {\n  0%, 100% { transform: scale(1); }\n  50% { transform: scale(1.04); }\n}` 
         },
         'latido-fuerte': { 
-            nombre: 'Latido Fuerte', 
-            css: `@keyframes latido-fuerte { 0%, 100% { transform: scale(1); } 14% { transform: scale(1.08); } 28% { transform: scale(1); } 42% { transform: scale(1.08); } 70% { transform: scale(1); } }` 
+            nombre: 'Heartbeat (Doble Latido)', 
+            css: `@keyframes latido-fuerte {\n  0%, 100% { transform: scale(1); }\n  14% { transform: scale(1.07); }\n  28% { transform: scale(1); }\n  42% { transform: scale(1.07); }\n  70% { transform: scale(1); }\n}` 
         },
         'rebotar': { 
-            nombre: 'Rebotar (Bounce)', 
-            css: `@keyframes rebotar { 0%, 20%, 50%, 80%, 100% { transform: translateY(0); } 40% { transform: translateY(-10px); } 60% { transform: translateY(-5px); } }` 
+            nombre: 'Bounce (Rebote)', 
+            css: `@keyframes rebotar {\n  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }\n  40% { transform: translateY(-8px); }\n  60% { transform: translateY(-4px); }\n}` 
         },
         'agitar-x': { 
-            nombre: 'Agitar Horizontal', 
-            css: `@keyframes agitar-x { 0%, 100% { transform: translateX(0); } 10%, 30%, 50%, 70%, 90% { transform: translateX(-4px); } 20%, 40%, 60%, 80% { transform: translateX(4px); } }` 
+            nombre: 'Shake X (Sacudida)', 
+            css: `@keyframes agitar-x {\n  0%, 100% { transform: translateX(0); }\n  20%, 60% { transform: translateX(-4px); }\n  40%, 80% { transform: translateX(4px); }\n}` 
         },
         'gelatina': { 
-            nombre: 'Gelatina (Jello)', 
-            css: `@keyframes gelatina { 0%, 100% { transform: scale(1) skew(0deg, 0deg); } 20% { transform: scale(0.98) skew(-3deg, -3deg); } 40% { transform: scale(1.02) skew(2deg, 2deg); } 60% { transform: scale(0.99) skew(-1deg, -1deg); } 80% { transform: scale(1.01) skew(0.5deg, 0.5deg); } }` 
+            nombre: 'Jello (Gelatina)', 
+            css: `@keyframes gelatina {\n  0%, 100% { transform: scale(1) skew(0deg, 0deg); }\n  20% { transform: scale(0.98) skew(-2.5deg, -2.5deg); }\n  40% { transform: scale(1.02) skew(2deg, 2deg); }\n  60% { transform: scale(0.99) skew(-1deg, -1deg); }\n  80% { transform: scale(1.01) skew(0.5deg, 0.5deg); }\n}` 
         }
     },
-    "Entradas: Desvanecer (Fades)": {
-        'aparecer': { nombre: 'Aparecer Suave', css: `@keyframes aparecer { from { opacity: 0; } to { opacity: 1; } }` },
-        'aparecer-arriba': { nombre: 'Aparecer desde Arriba', css: `@keyframes aparecer-arriba { from { opacity: 0; transform: translateY(-15px); } to { opacity: 1; transform: translateY(0); } }` },
-        'aparecer-abajo': { nombre: 'Aparecer desde Abajo', css: `@keyframes aparecer-abajo { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }` },
-        'aparecer-izq': { nombre: 'Aparecer desde la Izquierda', css: `@keyframes aparecer-izq { from { opacity: 0; transform: translateX(-15px); } to { opacity: 1; transform: translateX(0); } }` },
-        'aparecer-der': { nombre: 'Aparecer desde la Derecha', css: `@keyframes aparecer-der { from { opacity: 0; transform: translateX(15px); } to { opacity: 1; transform: translateX(0); } }` }
+    "Entradas (Fade In)": {
+        'aparecer': { 
+            nombre: 'Fade In', 
+            css: `@keyframes aparecer {\n  from { opacity: 0; }\n  to { opacity: 1; }\n}` 
+        },
+        'aparecer-arriba': { 
+            nombre: 'Fade In Down', 
+            css: `@keyframes aparecer-arriba {\n  from { opacity: 0; transform: translateY(-12px); }\n  to { opacity: 1; transform: translateY(0); }\n}` 
+        },
+        'aparecer-abajo': { 
+            nombre: 'Fade In Up', 
+            css: `@keyframes aparecer-abajo {\n  from { opacity: 0; transform: translateY(12px); }\n  to { opacity: 1; transform: translateY(0); }\n}` 
+        },
+        'aparecer-izq': { 
+            nombre: 'Fade In Left', 
+            css: `@keyframes aparecer-izq {\n  from { opacity: 0; transform: translateX(-12px); }\n  to { opacity: 1; transform: translateX(0); }\n}` 
+        },
+        'aparecer-der': { 
+            nombre: 'Fade In Right', 
+            css: `@keyframes aparecer-der {\n  from { opacity: 0; transform: translateX(12px); }\n  to { opacity: 1; transform: translateX(0); }\n}` 
+        }
     },
-    "Entradas: Zoom & Escalado": {
-        'zoom-entrar': { nombre: 'Zoom de Entrada', css: `@keyframes zoom-entrar { from { opacity: 0; transform: scale(0.85); } to { opacity: 1; transform: scale(1); } }` },
+    "Escalado & Zoom": {
+        'zoom-entrar': { 
+            nombre: 'Zoom In', 
+            css: `@keyframes zoom-entrar {\n  from { opacity: 0; transform: scale(0.92); }\n  to { opacity: 1; transform: scale(1); }\n}` 
+        },
         'zoom-desbordante': { 
-            nombre: 'Zoom con Rebote', 
-            css: `@keyframes zoom-desbordante { 0% { opacity: 0; transform: scale(0.85); } 50% { opacity: 1; transform: scale(1.03); } 70% { transform: scale(0.98); } 100% { transform: scale(1); } }` 
+            nombre: 'Pop In (Con rebote)', 
+            css: `@keyframes zoom-desbordante {\n  0% { opacity: 0; transform: scale(0.9); }\n  50% { opacity: 1; transform: scale(1.03); }\n  70% { transform: scale(0.98); }\n  100% { transform: scale(1); }\n}` 
         }
     },
-    "Rotaciones (Spins & Flips)": {
-        'girar': { nombre: 'Giro Constante (360º)', css: `@keyframes girar { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }` },
-        'voltereta-y': { nombre: 'Voltereta 3D (Flip)', css: `@keyframes voltereta-y { from { transform: perspective(400px) rotateY(90deg); opacity: 0; } to { transform: perspective(400px) rotateY(0deg); opacity: 1; } }` }
+    "Rotaciones": {
+        'girar': { 
+            nombre: 'Spin (360°)', 
+            css: `@keyframes girar {\n  from { transform: rotate(0deg); }\n  to { transform: rotate(360deg); }\n}` 
+        },
+        'voltereta-y': { 
+            nombre: 'Flip Y (3D)', 
+            css: `@keyframes voltereta-y {\n  from { transform: perspective(400px) rotateY(90deg); opacity: 0; }\n  to { transform: perspective(400px) rotateY(0deg); opacity: 1; }\n}` 
+        }
     }
 };
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Referencias DOM
     const compType = document.getElementById('comp-type');
     const compColor = document.getElementById('comp-color');
     const animType = document.getElementById('anim-type');
@@ -65,7 +88,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const tabHtml = document.getElementById('tab-html');
     let currentTab = 'css';
 
-    // 1. Inyectar Keyframes en el DOM
     function injectGlobalKeyframes() {
         let styleTag = document.getElementById('global-keyframes');
         if (!styleTag) {
@@ -77,7 +99,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let allCSS = '';
         for (const cat of Object.values(animaciones)) {
             for (const datos of Object.values(cat)) {
-                allCSS += datos.css + '\n';
+                allCSS += datos.css + '\n\n';
             }
         }
         styleTag.innerHTML = allCSS;
@@ -85,7 +107,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     injectGlobalKeyframes();
 
-    // 2. Poblar Selector de Animaciones
     for (const [categoria, anims] of Object.entries(animaciones)) {
         const optgroup = document.createElement('optgroup');
         optgroup.label = categoria;
@@ -98,25 +119,24 @@ document.addEventListener('DOMContentLoaded', () => {
         animType.appendChild(optgroup);
     }
 
-    // 3. Renderizar Componentes con la Clase de Color Aplicada
     function renderComponent() {
         const type = compType.value;
         const color = compColor.value;
         let html = '';
 
         if (type === 'button') {
-            html = `<button id="target-element" class="bs-button bg-${color}">¡Haz Clic Aquí!</button>`;
+            html = `<button id="target-element" class="bs-button bg-${color}">Confirmar Acción</button>`;
         } else if (type === 'card') {
             html = `<div id="target-element" class="bs-card bg-${color}">
-                        <h3>Tarjeta Bootstrap</h3>
-                        <p>Contenido limpio y estilizado.</p>
+                        <span class="bs-card-title">Título del Módulo</span>
+                        <span class="bs-card-desc">Descripción secundaria del elemento.</span>
                     </div>`;
         } else if (type === 'alert') {
             html = `<div id="target-element" class="bs-alert bg-${color}">
-                        🔔 <span>¡Notificación importante!</span>
+                        <span>Actualización disponible para el sistema.</span>
                     </div>`;
         } else if (type === 'badge') {
-            html = `<span id="target-element" class="bs-badge bg-${color}">NUEVO</span>`;
+            html = `<span id="target-element" class="bs-badge bg-${color}">ACTIVO</span>`;
         } else {
             html = `<div id="target-element" class="bs-box bg-${color}"></div>`;
         }
@@ -124,7 +144,6 @@ document.addEventListener('DOMContentLoaded', () => {
         container.innerHTML = html;
     }
 
-    // 4. Actualizar Estado, Animación y Salida de Código
     function update() {
         renderComponent();
 
@@ -144,7 +163,6 @@ document.addEventListener('DOMContentLoaded', () => {
             if (cat[animId]) keyframesCSS = cat[animId].css;
         }
 
-        // Reinicio de animación por reflow
         target.style.animation = 'none';
         void target.offsetWidth;
         
@@ -155,23 +173,16 @@ document.addEventListener('DOMContentLoaded', () => {
         target.style.animationIterationCount = iteration;
         target.style.animationFillMode = fill;
 
-        // Mostrar Código según pestaña
         if (currentTab === 'css') {
-            codeFilename.textContent = 'estilos.css';
-            codeOutput.textContent = `/* Estilos de la animación CSS */
-.animado {
-    animation: ${animId} ${duration} ${timing} ${delay} ${iteration} ${fill};
-}
-
-${keyframesCSS}`.trim();
+            codeFilename.textContent = 'styles.css';
+            codeOutput.textContent = `.animated-element {\n  animation: ${animId} ${duration} ${timing} ${delay} ${iteration} ${fill};\n}\n\n${keyframesCSS}`.trim();
         } else {
             codeFilename.textContent = 'index.html';
-            const tempHtml = target.outerHTML.replace('id="target-element"', 'class="animado ' + target.className + '"');
-            codeOutput.textContent = `<!-- Código HTML del componente -->\n${tempHtml}`.trim();
+            const tempHtml = target.outerHTML.replace('id="target-element"', 'class="animated-element ' + target.className + '"');
+            codeOutput.textContent = tempHtml.trim();
         }
     }
 
-    // Pestañas CSS/HTML
     tabCss.addEventListener('click', () => {
         tabCss.classList.add('active');
         tabHtml.classList.remove('active');
@@ -186,7 +197,6 @@ ${keyframesCSS}`.trim();
         update();
     });
 
-    // Escuchadores de cambio
     [compType, compColor, animType, durationInput, delayInput, timingSelect, iterationSelect, fillSelect].forEach(el => {
         el.addEventListener('input', update);
         el.addEventListener('change', update);
@@ -194,15 +204,12 @@ ${keyframesCSS}`.trim();
 
     replayBtn.addEventListener('click', update);
 
-    // Botón de Copiar al Portapapeles
     copyBtn.addEventListener('click', () => {
         navigator.clipboard.writeText(codeOutput.textContent).then(() => {
             toast.classList.add('show');
-            copyBtn.textContent = '¡Copiado!';
             setTimeout(() => {
                 toast.classList.remove('show');
-                copyBtn.textContent = 'Copiar';
-            }, 2500);
+            }, 2000);
         });
     });
 

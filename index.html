@@ -3,125 +3,160 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Generador de Animaciones CSS</title>
+    <title>CSS Motion Studio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <h1>CSS Animaciones Elegantes</h1>
-        <p>Prueba animaciones CSS en componentes reales estilo Bootstrap.</p>
+    <header class="app-header">
+        <div class="brand">
+            <div class="logo-icon"></div>
+            <span class="app-title">CSS Motion</span>
+            <span class="badge-tag">Studio</span>
+        </div>
+        <p class="app-subtitle">Generador de animaciones CSS para componentes UI</p>
     </header>
 
-    <main class="container">
-        <!-- Panel Izquierdo: Controles -->
-        <section class="panel">
-            <h2>1. Elige el Componente</h2>
-            
-            <div class="control-group">
-                <label for="comp-type">Elemento a animar:</label>
-                <select id="comp-type">
-                    <option value="button">Botón (Button)</option>
-                    <option value="card">Tarjeta (Card)</option>
-                    <option value="alert">Alerta (Alert)</option>
-                    <option value="badge">Insignia (Badge)</option>
-                    <option value="box">Caja Simple (Box)</option>
-                </select>
+    <main class="app-layout">
+        <!-- Panel de Configuración -->
+        <aside class="panel controls-panel">
+            <div class="section-block">
+                <span class="section-label">01. Componente</span>
+                
+                <div class="field-group">
+                    <label for="comp-type">Elemento</label>
+                    <div class="select-wrapper">
+                        <select id="comp-type">
+                            <option value="button">Botón principal</option>
+                            <option value="card">Tarjeta UI</option>
+                            <option value="alert">Notificación / Alerta</option>
+                            <option value="badge">Etiqueta / Badge</option>
+                            <option value="box">Contenedor / Box</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="field-group">
+                    <label for="comp-color">Tema de color</label>
+                    <div class="select-wrapper">
+                        <select id="comp-color">
+                            <option value="primary">Primary (Azul)</option>
+                            <option value="success">Success (Verde)</option>
+                            <option value="danger">Danger (Rojo)</option>
+                            <option value="warning">Warning (Ámbar)</option>
+                            <option value="info">Info (Cian)</option>
+                            <option value="dark">Dark (Neutro)</option>
+                        </select>
+                    </div>
+                </div>
             </div>
 
-            <div class="control-group">
-                <label for="comp-color">Color Tema Bootstrap:</label>
-                <select id="comp-color">
-                    <option value="primary">Primary (Azul)</option>
-                    <option value="success">Success (Verde)</option>
-                    <option value="danger">Danger (Rojo)</option>
-                    <option value="warning">Warning (Amarillo)</option>
-                    <option value="info">Info (Celeste)</option>
-                    <option value="dark">Dark (Oscuro)</option>
-                </select>
+            <div class="section-block">
+                <span class="section-label">02. Parámetros de Animación</span>
+
+                <div class="field-group">
+                    <label for="anim-type">Efecto</label>
+                    <div class="select-wrapper">
+                        <select id="anim-type"></select>
+                    </div>
+                </div>
+
+                <div class="field-group">
+                    <div class="label-row">
+                        <label for="anim-duration">Duración</label>
+                        <span id="duration-val" class="value-badge">1.0s</span>
+                    </div>
+                    <input type="range" id="anim-duration" min="0.1" max="5" step="0.1" value="1">
+                </div>
+
+                <div class="field-group">
+                    <div class="label-row">
+                        <label for="anim-delay">Retraso</label>
+                        <span id="delay-val" class="value-badge">0.0s</span>
+                    </div>
+                    <input type="range" id="anim-delay" min="0" max="3" step="0.1" value="0">
+                </div>
+
+                <div class="field-group">
+                    <label for="anim-timing">Curva de velocidad</label>
+                    <div class="select-wrapper">
+                        <select id="anim-timing">
+                            <option value="ease">ease</option>
+                            <option value="linear">linear</option>
+                            <option value="ease-in">ease-in</option>
+                            <option value="ease-out">ease-out</option>
+                            <option value="ease-in-out">ease-in-out</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="field-group">
+                    <label for="anim-iteration">Repetición</label>
+                    <div class="select-wrapper">
+                        <select id="anim-iteration">
+                            <option value="infinite">Infinita (infinite)</option>
+                            <option value="1">1 vez</option>
+                            <option value="2">2 veces</option>
+                            <option value="3">3 veces</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="field-group">
+                    <label for="anim-fill">Modo final (fill-mode)</label>
+                    <div class="select-wrapper">
+                        <select id="anim-fill">
+                            <option value="both">both</option>
+                            <option value="forwards">forwards</option>
+                            <option value="backwards">backwards</option>
+                            <option value="none">none</option>
+                        </select>
+                    </div>
+                </div>
             </div>
 
-            <h2>2. Ajustes de Animación</h2>
+            <button id="replay-btn" class="action-btn">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>
+                Reiniciar animación
+            </button>
+        </aside>
 
-            <div class="control-group">
-                <label for="anim-type">Efecto Base:</label>
-                <select id="anim-type"></select>
+        <!-- Panel de Vista Previa y Código -->
+        <section class="panel preview-panel">
+            <div class="preview-header">
+                <span class="panel-title">Vista Previa</span>
+                <span class="dimensions-tag">Stage: 100% × 180px</span>
             </div>
 
-            <div class="control-group">
-                <label for="anim-duration">Duración: <span id="duration-val">1s</span></label>
-                <input type="range" id="anim-duration" min="0.1" max="5" step="0.1" value="1">
-            </div>
-
-            <div class="control-group">
-                <label for="anim-delay">Retraso (Delay): <span id="delay-val">0s</span></label>
-                <input type="range" id="anim-delay" min="0" max="3" step="0.1" value="0">
-            </div>
-
-            <div class="control-group">
-                <label for="anim-timing">Curva de Tiempo:</label>
-                <select id="anim-timing">
-                    <option value="ease">ease</option>
-                    <option value="linear">linear</option>
-                    <option value="ease-in">ease-in</option>
-                    <option value="ease-out">ease-out</option>
-                    <option value="ease-in-out">ease-in-out</option>
-                </select>
-            </div>
-
-            <div class="control-group">
-                <label for="anim-iteration">Repetición:</label>
-                <select id="anim-iteration">
-                    <option value="infinite">Infinita (infinite)</option>
-                    <option value="1">1 Vez</option>
-                    <option value="2">2 Veces</option>
-                    <option value="3">3 Veces</option>
-                </select>
-            </div>
-
-            <div class="control-group">
-                <label for="anim-fill">Modo Final (Fill Mode):</label>
-                <select id="anim-fill">
-                    <option value="both">both</option>
-                    <option value="forwards">forwards</option>
-                    <option value="backwards">backwards</option>
-                    <option value="none">none</option>
-                </select>
-            </div>
-
-            <button id="replay-btn" class="btn primary-btn">▶ Repetir Animación</button>
-        </section>
-
-        <!-- Panel Derecho: Vista previa y Código -->
-        <section class="panel">
-            <h2>Vista Previa en Vivo</h2>
             <div class="preview-box">
                 <div id="element-container"></div>
             </div>
 
-            <div class="code-header-container">
-                <h2>Código Generado</h2>
-                <div class="tab-buttons">
-                    <button id="tab-css" class="tab-btn active">CSS</button>
-                    <button id="tab-html" class="tab-btn">HTML</button>
-                </div>
-            </div>
-
-            <div class="code-window">
-                <div class="code-header">
-                    <div class="mac-btns">
-                        <span class="close"></span>
-                        <span class="minimize"></span>
-                        <span class="maximize"></span>
+            <div class="code-section">
+                <div class="code-toolbar">
+                    <div class="tab-group">
+                        <button id="tab-css" class="tab-pill active">CSS</button>
+                        <button id="tab-html" class="tab-pill">HTML</button>
                     </div>
-                    <span id="code-filename" class="code-title">estilos.css</span>
-                    <button id="copy-btn" class="copy-btn">Copiar</button>
+                    <div class="code-actions">
+                        <span id="code-filename" class="file-name">styles.css</span>
+                        <button id="copy-btn" class="copy-action-btn">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                            Copiar
+                        </button>
+                    </div>
                 </div>
-                <pre><code id="code-output"></code></pre>
+
+                <div class="code-container">
+                    <pre><code id="code-output"></code></pre>
+                </div>
             </div>
         </section>
     </main>
 
-    <div id="toast" class="toast">¡Código copiado al portapapeles!</div>
+    <div id="toast" class="toast">Código copiado al portapapeles</div>
 
     <script src="script.js"></script>
 </body>
